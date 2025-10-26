@@ -1,0 +1,31 @@
+class Expense:
+    def __init__(self, date, category, amount):
+        self.date = date
+        self.category = category
+        self.amount = amount
+
+class ExpenseTracker:
+    def __init__(self):
+        self.expenses = []
+
+    def add_expense(self, expense):
+        self.expenses.append(expense)
+
+    def view_expenses(self):
+        for e in self.expenses:
+            print(f"{e.date} - {e.category}: ₹{e.amount}")
+
+    def total_expense(self):
+        total = sum(e.amount for e in self.expenses)
+        print(f"Total Expense: ₹{total}")
+
+# Example Usage
+e1 = Expense("2025-10-25", "Food", 250)
+e2 = Expense("2025-10-25", "Transport", 100)
+
+tracker = ExpenseTracker()
+tracker.add_expense(e1)
+tracker.add_expense(e2)
+
+tracker.view_expenses()
+tracker.total_expense()
